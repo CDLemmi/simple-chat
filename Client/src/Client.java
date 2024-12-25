@@ -1,3 +1,4 @@
+import debug.Log;
 import protocol.MessageInputStream;
 import protocol.MessageOutputStream;
 import static debug.Log.*;
@@ -74,9 +75,8 @@ public class Client {
 
 
     public static void main(String[] args) {
-        System.out.println("Hello Client");
+        Log.applyArgs(args);
         var client = new Client();
-        System.out.println("program finished");
     }
 
 }

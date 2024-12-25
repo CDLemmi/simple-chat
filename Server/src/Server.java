@@ -1,3 +1,5 @@
+import debug.Log;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -48,7 +50,8 @@ public class Server {
 
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
+        Log.applyArgs(args);
         var server = new Server();
     }
 
