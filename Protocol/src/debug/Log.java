@@ -22,22 +22,22 @@ public class Log {
 
 
     public static void applyArgs(String[] args) {
-        for(String s : args) {
-            if(s.startsWith("--debug="));
-            try {
-                int debugLevel = Integer.parseInt(String.valueOf(s.charAt(8)));
-                if(debugLevel < 0 || debugLevel > 2) {
+        for (String s : args) {
+            if (s.startsWith("--debug=")) {
+                try {
+                    int debugLevel = Integer.parseInt(String.valueOf(s.charAt(8)));
+                    if (debugLevel < 0 || debugLevel > 2) {
+                        System.out.println("WARNING: debug level must be 0, 1 or 2");
+                        System.exit(1);
+                    }
+                    DEBUG_LEVEL = debugLevel;
+                    LogI("set debug level to " + DEBUG_LEVEL);
+                } catch (NumberFormatException e) {
                     System.out.println("WARNING: debug level must be 0, 1 or 2");
                     System.exit(1);
                 }
-                DEBUG_LEVEL = debugLevel;
-                LogI("set debug level to " + DEBUG_LEVEL);
-            } catch(NumberFormatException e) {
-                System.out.println("WARNING: debug level must be 0, 1 or 2");
-                System.exit(1);
             }
         }
     }
-
 
 }
